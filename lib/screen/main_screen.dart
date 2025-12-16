@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testing/screen/kakao_screen.dart';
 import 'package:testing/screen/map_screen.dart';
 import 'package:testing/screen/mypage_screen.dart';
 
@@ -18,7 +19,7 @@ class _MainState extends State<MainPage> {
   List<Widget> _widgetList = [
     MyPage(),
     Center(child: Text('혜택', style: TextStyle(fontSize: 20),),),
-    MapPage(),
+    KakaoMapAPIScreen(),
     Center(child: Text('AI', style: TextStyle(fontSize: 20),),),
     Center(child: Text('회원정보 수정', style: TextStyle(fontSize: 20),),),
   ];

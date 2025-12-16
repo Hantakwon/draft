@@ -35,6 +35,7 @@ class _MapState extends State<MapPage> {
           final newDateTime = DateTime(
             pickedDate.year,
             pickedDate.month,
+            
             pickedDate.day,
             pickedTime.hour,
             pickedTime.minute,
@@ -229,7 +230,7 @@ class _MapState extends State<MapPage> {
     );
   }
 }
-w
+
 // 상단 바
 Widget _buildAppBar(BuildContext context) {
   return Row(

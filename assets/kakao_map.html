@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kakao Map API</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%; /* 뷰포트가 아닌 body 높이를 100%로 설정 */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* 스크롤 방지 */
+        }
+        #map {
+            width: 100%;
+            height: 100%; /* body 높이를 꽉 채우도록 100%로 설정 */
+        }
+        .custom-overlay-style {
+            padding: 4px 8px;
+            background: #4a90e2;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+    var script = document.createElement('script');
+    script.src = "http://dapi.kakao.com/v2/maps/sdk.js?appkey=02766b043924c4c57b57f6ffcfdc6e95&autoload=false";
+    document.head.appendChild(script);
+
+    script.onload = function() {
+        kakao.maps.load(function() {
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(37.566826, 126.978656), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+            var map = new kakao.maps.Map(container, options); // 지도 생성
+
+            // ⭐ 1. 마커가 표시될 위치 정의 (서울 시청)
+            var markerPosition = new kakao.maps.LatLng(37.566826, 126.978656);
+
+            var content = '<div class="custom-overlay-style">1</div>';
+
+            // ⭐ 2. 마커 생성
+            var customMarker = new kakao.maps.CustomOverlay({
+                position: markerPosition, // 마커 위치
+                content: content,        // 표시할 HTML 엘리먼트
+                yAnchor: 1               // 좌표에 엘리먼트의 아래쪽이 위치하도록 설정
+            });
+
+            // 지도에 커스텀 오버레이 표시
+            customMarker.setMap(map);
+        });
+    };
+</script>
+</body>
+</html>
