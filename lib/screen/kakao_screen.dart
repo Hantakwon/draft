@@ -144,7 +144,7 @@ Widget _buildKakaoMap(
           onWebViewCreated: (controller) {
             // 필요하다면, 여기서 웹뷰 컨트롤러를 저장하여 JavaScript를 실행할 수 있습니다.
             // 예: controller.evaluateJavascript(source: "alert('Hello from Flutter');");
-            webViewController = controller;
+            // webViewController = controller;
           },
 
           onConsoleMessage: (controller, consoleMessage) {
@@ -159,7 +159,7 @@ Widget _buildKakaoMap(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
-                onPressed: _captureWebView,
+                onPressed: () async {}, // _captureWebView
                 icon: Icon(Icons.camera, size: 30),
               ),
               IconButton(
